@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'groovy'
+}
+
+group = 'be.ss'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//needed for .html templates
+	//implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	//new
+	implementation 'org.grails:grails-core:4.0.1'
+	implementation 'org.grails:grails-datastore-gorm:7.0.4.RELEASE'
+	implementation 'org.grails:grails-validation:3.3.10'
+	
+	implementation 'org.grails:grails-gsp-spring-boot:1.0.0'
+	implementation 'org.grails:grails-web-gsp-taglib:3.2.12'
+	
+	
+	//old
+	//implementation 'org.grails:gorm-hibernate4-spring-boot:1.1.0.RELEASE'
+	//implementation 'org.grails:grails-gsp-spring-boot:1.0.0'
+	//implementation 'org.grails:grails-web-gsp-taglib:2.4.4'
+	//implementation 'org.grails:grails-validation:2.4.4'
+	
+	
+	runtimeOnly 'com.h2database:h2'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
