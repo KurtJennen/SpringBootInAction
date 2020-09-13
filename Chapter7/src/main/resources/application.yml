@@ -1,0 +1,42 @@
+management:  endpoint:    metrics:      enabled: true  server:    servlet:      context-path: /mgmt
+spring:
+  main:
+    banner-mode: off
+  thymeleaf:    cache: false
+  profiles:    active: production#  datasource:#    url: jdbc:mysql://localhost:3306/readinglist
+#    username: root
+#    password: admin
+#    driver-class-name: com.mysql.jdbc.Driver
+
+#server:#  port: 8443
+#  ssl:#    key-store: file:C:/Users/Kurt/mykeys.jks
+#    key-store-password: letmein
+#    key-password: letmein
+
+logging:
+  config: classpath:logback-disabled.xml
+  level:
+    root: info
+    org.springframework.security: debug
+  
+---
+
+spring:  profiles: development  
+logging:
+  level:
+    root: info
+   
+---
+
+spring:
+  profiles: production
+  
+logging:
+  file:
+    path: /
+    name: BookWorm.log
+  level:
+    root: warn     
+ 
+amazon:
+  associateId: habuma-20
